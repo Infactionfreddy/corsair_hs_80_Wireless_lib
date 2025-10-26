@@ -1,5 +1,3 @@
-# corsair_hs_80_lib
-
 
 # HS80 Library - Corsair HS80 RGB Wireless Gaming Headset
 
