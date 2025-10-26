@@ -1,7 +1,0 @@
-
-hid
-
-# Windows-only (optional):
-pycaw
-comtypes
-
