@@ -1,0 +1,114 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C++: Build HS80 (MSVC)",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fe:",
+                "${workspaceFolder}\\HS80\\Debug\\HS80.exe",
+                "/Fo:",
+                "${workspaceFolder}\\HS80\\Debug\\",
+                "${workspaceFolder}\\HS80\\HS80.cpp",
+                "hid.lib",
+                "setupapi.lib"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\HS80"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Kompiliert das HS80 Projekt mit MSVC"
+        },
+        {
+            "type": "shell",
+            "label": "C++: Build HS80 (g++)",
+            "command": "g++",
+            "args": [
+                "-g",
+                "-std=c++17",
+                "${workspaceFolder}\\HS80\\HS80.cpp",
+                "-o",
+                "${workspaceFolder}\\HS80\\Debug\\HS80.exe",
+                "-lhid",
+                "-lsetupapi"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}\\HS80"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build",
+            "detail": "Kompiliert das HS80 Projekt mit MinGW g++"
+        },
+        {
+            "type": "shell",
+            "label": "C++: Clean Build",
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Remove-Item",
+                "-Path",
+                "${workspaceFolder}\\HS80\\Debug\\*",
+                "-Include",
+                "*.obj,*.exe,*.ilk,*.pdb",
+                "-Force",
+                "-ErrorAction",
+                "SilentlyContinue"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "Löscht alle Build-Artefakte"
+        },
+        {
+            "type": "shell",
+            "label": "CMake: Configure",
+            "command": "cmake",
+            "args": [
+                "-S",
+                "${workspaceFolder}",
+                "-B",
+                "${workspaceFolder}/build",
+                "-G",
+                "Visual Studio 17 2022"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [],
+            "detail": "Konfiguriert das Projekt mit CMake"
+        },
+        {
+            "type": "shell",
+            "label": "CMake: Build",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "${workspaceFolder}/build",
+                "--config",
+                "Debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$msCompile"
+            ],
+            "group": "build",
+            "dependsOn": ["CMake: Configure"],
+            "detail": "Baut das Projekt mit CMake"
+        }
+    ]
+}

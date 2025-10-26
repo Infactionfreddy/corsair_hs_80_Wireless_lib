@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "iomanip": "cpp",
+        "vector": "cpp",
+        "string": "cpp",
+        "map": "cpp",
+        "windows.h": "c",
+        "hidsdi.h": "c",
+        "setupapi.h": "c"
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools",
+    "C_Cpp.default.compilerPath": "cl.exe",
+    "C_Cpp.default.cppStandard": "c++17"
+}
